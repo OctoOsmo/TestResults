@@ -2,7 +2,7 @@ program TestResultsPrint;
 
 uses
   Forms,
-  MainUnit in '..\..\..\Documents\GitHub\Тестирование печать результатов\MainUnit.pas' {MainForm};
+  MainUnit in 'MainUnit.pas' {MainForm};
 
 {$R *.res}
 
