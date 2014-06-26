@@ -30,8 +30,7 @@ object MainForm: TMainForm
     OnClick = ButtonPrintClick
   end
   object IBDatabaseMain: TIBDatabase
-    Connected = True
-    DatabaseName = 'C:\Users\'#1040#1083#1077#1082#1089#1072#1085#1076#1088'\Dropbox\'#1055#1088#1086#1075#1088#1072#1084#1084#1099'\TestResults\TEST_VSMA.GDB'
+    DatabaseName = 'TEST_VSMA.GDB'
     Params.Strings = (
       'user_name=sysdba'
       'password=masterkey'
