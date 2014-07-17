@@ -30,6 +30,7 @@ object MainForm: TMainForm
     OnClick = ButtonPrintClick
   end
   object IBDatabaseMain: TIBDatabase
+    Connected = True
     DatabaseName = 'TEST_VSMA.GDB'
     Params.Strings = (
       'user_name=sysdba'
@@ -49,23 +50,13 @@ object MainForm: TMainForm
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
-      'select r.*, sp.fio, sp.fak ,'
       
-        'right_ans_count*100/(select n.kol_vopr_tst from nastr n) as perc' +
-        'ent_of_right'
-      'from'
-      '('
-      'select distinct os.n_stud,'
-      
-        '(select count(*) from otvet_st os2 where os.n_stud = os2.n_stud)' +
-        ' ans_count,'
-      
-        '(select count(*) from otvet_st os2, otvet o where os.n_stud = os' +
-        '2.n_stud and os2.n_otv = o.n_otv and o.pr_pr = 1) right_ans_coun' +
-        't'
-      'from otvet_st os'
-      ')r, spisok_st sp'
-      'where sp.n_stud = r.n_stud')
+        'select r1.n_stud, r1.iv_vopr as ANS_COUNT, r1.v_5 as RIGHT_ANS_C' +
+        'OUNT, sp.fio as FIO, sp.fak, r1.v_5/r1.iv_vopr as PERCENT_OF_RIG' +
+        'HT'
+      'from result1 r1, spisok_st sp'
+      'where'
+      'r1.n_stud = sp.n_stud')
     Left = 224
     Top = 8
     object IBQueryResultsN_STUD: TIntegerField
