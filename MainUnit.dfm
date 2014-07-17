@@ -52,8 +52,7 @@ object MainForm: TMainForm
     SQL.Strings = (
       
         'select r1.n_stud, r1.iv_vopr as ANS_COUNT, r1.v_5 as RIGHT_ANS_C' +
-        'OUNT, sp.fio as FIO, sp.fak, r1.v_5/r1.iv_vopr as PERCENT_OF_RIG' +
-        'HT'
+        'OUNT, sp.fio as FIO, sp.fak, r1.v_5*1.00 as PERCENT_OF_RIGHT'
       'from result1 r1, spisok_st sp'
       'where'
       'r1.n_stud = sp.n_stud')
